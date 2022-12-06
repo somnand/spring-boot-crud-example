@@ -3,22 +3,26 @@ package service;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import model.Product;
 import repository.ProductRepository;
 
+@Service
 public class ProductService 
 {
     @Autowired
     private ProductRepository repository;
     
-    //GET methods
-    public void getProductById(UUID productId)
+    //GET services
+    public Product getProductById(UUID productId)
     {
-	repository.getReferenceById(productId);
+	Product product = repository.findById(productId).orElse(null);
+	//getReferenceById(productId);
+	return product;
     }
     
-    //POST methods
+    //POST services
     public void addProduct(Product product)
     {	
 	repository.save(product);
