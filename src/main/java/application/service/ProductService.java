@@ -1,12 +1,12 @@
-package service;
+package application.service;
 
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import model.Product;
-import repository.ProductRepository;
+import application.model.Product;
+import application.repository.ProductRepository;
 
 @Service
 public class ProductService 
@@ -17,14 +17,18 @@ public class ProductService
     //GET services
     public Product getProductById(UUID productId)
     {
+	System.out.println("Till Service");
 	Product product = repository.findById(productId).orElse(null);
 	//getReferenceById(productId);
 	return product;
     }
     
     //POST services
-    public void addProduct(Product product)
+    public UUID addProduct(Product product)
     {	
-	repository.save(product);
+	System.out.println("Till Service");
+	Product insertedProduct = repository.save(product);
+	System.out.println("New Product Id : "+product.getID());
+	return product.getID();
     }
 }

@@ -1,4 +1,4 @@
-package model;
+package application.model;
 
 import java.util.UUID;
 
@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -19,8 +20,14 @@ import lombok.NoArgsConstructor;
 public class Product
 {
     @Id
-    @GeneratedValue
+    @GeneratedValue    
     private UUID id;
+    
+    public UUID getID()
+    {
+	return id;
+    }
+    
     private String name;
     private int quantity;
     private double price;

@@ -1,4 +1,4 @@
-package controller;
+package application.controller;
 
 import java.util.UUID;
 
@@ -7,13 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.NonNull;
-import model.Product;
-import service.ProductService;
+import application.model.Product;
+import application.service.ProductService;
 
 @RestController
 public class ProductController
@@ -22,7 +19,7 @@ public class ProductController
     private ProductService service;
     
     @GetMapping("/welcome")
-    private String testSetup()
+    public String testSetup()
     {
 	System.out.println("Hello World");
 	return "Hello World";
@@ -30,17 +27,20 @@ public class ProductController
     
     //GET methods
     @GetMapping("/product/{id}")
-    public void getProductById(@PathVariable UUID productId)
+    public void getProductById(@PathVariable(name = "id") UUID productId)
     {
-	service.getProductById(productId);
-    }    
+	System.out.println("Till Controller");
+	Product fetchedProduct = service.getProductById(productId);
+	System.out.println("Get Product "+fetchedProduct);
+    }
     
     //POST Methods
     @PostMapping("/addProduct")
-    public void addProduct(@RequestBody Product newProduct)
+    public UUID addProduct(@RequestBody Product newProduct)
     {
 	System.out.println("Till Controller");
-	service.addProduct(newProduct);	
+	UUID newId = service.addProduct(newProduct);	
+	return newId;
     }
 
 }
