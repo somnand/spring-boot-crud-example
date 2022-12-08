@@ -1,5 +1,6 @@
 package application.controller;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,20 +28,28 @@ public class ProductController
     
     //GET methods
     @GetMapping("/product/{id}")
-    public void getProductById(@PathVariable(name = "id") UUID productId)
+    public Product getProductById(@PathVariable(name = "id") int productId)
     {
-	System.out.println("Till Controller");
+	System.out.println("Controller : "+productId);
 	Product fetchedProduct = service.getProductById(productId);
-	System.out.println("Get Product "+fetchedProduct);
+	System.out.println("Controller (fetched product) : "+fetchedProduct);
+	return fetchedProduct;
+    }
+    
+    @GetMapping("/allProducts")
+    public List<Product> getAllProducts()
+    {
+	return service.getAllProducts();
     }
     
     //POST Methods
     @PostMapping("/addProduct")
-    public UUID addProduct(@RequestBody Product newProduct)
+    public int addProduct(@RequestBody Product newProduct)
     {
-	System.out.println("Till Controller");
-	UUID newId = service.addProduct(newProduct);	
-	return newId;
+	System.out.println("Controller : "+newProduct);
+	Product insertedProduct = service.addProduct(newProduct);
+	System.out.println("Controller (Inserted Product) : "+insertedProduct.getId());
+	return insertedProduct.getId();
     }
 
 }

@@ -1,5 +1,6 @@
 package application.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,20 +16,31 @@ public class ProductService
     private ProductRepository repository;
     
     //GET services
-    public Product getProductById(UUID productId)
+    public Product getProductById(int productId)
     {
-	System.out.println("Till Service");
-	Product product = repository.findById(productId).orElse(null);
-	//getReferenceById(productId);
+	Product nullProduct = new Product();
+	nullProduct.setName("NULL");
+	nullProduct.setPrice(0.0);
+	nullProduct.setQuantity(0);
+	
+	System.out.println("Service : "+productId);
+	Product product = repository.findById(productId).orElse(nullProduct);
+	System.out.println("Service (Fetched Product) : "+product);
 	return product;
     }
     
+    public List<Product> getAllProducts()
+    {
+	List<Product> products = repository.findAll();
+	return products;
+    }
+    
     //POST services
-    public UUID addProduct(Product product)
+    public Product addProduct(Product product)
     {	
-	System.out.println("Till Service");
+	System.out.println("Service (Old Product Id) : " + product.getId());
 	Product insertedProduct = repository.save(product);
-	System.out.println("New Product Id : "+product.getID());
-	return product.getID();
+	System.out.println("Service (New Product Id) : " + insertedProduct.getId());
+	return insertedProduct;
     }
 }

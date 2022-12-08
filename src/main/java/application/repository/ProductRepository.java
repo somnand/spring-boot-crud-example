@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import application.model.Product;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, UUID>
+public interface ProductRepository extends JpaRepository<Product, Integer>
 {    
     //Pre-filled by Spring 
 }

@@ -15,20 +15,20 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity // Since this is my model class
+@Entity //Since this is my model class
 @Table(name = "PRODUCT")
 public class Product
 {
     @Id
     @GeneratedValue    
-    private UUID id;
-    
-    public UUID getID()
-    {
-	return id;
-    }
-    
+    private int id;
     private String name;
     private int quantity;
-    private double price;
+    private double price;    
+    
+    @Override
+    public String toString()
+    {
+	return "Product [name=" + name + ", quantity=" + quantity + ", price=" + price + "]";
+    }
 }
