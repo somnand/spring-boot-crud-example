@@ -16,7 +16,7 @@ public class ProductService
     private ProductRepository repository;
     
     //GET services
-    public Product getProductById(int productId)
+    public Product getProductById(UUID productId)
     {
 	Product nullProduct = new Product();
 	nullProduct.setName("NULL");

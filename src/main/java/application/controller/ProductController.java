@@ -28,7 +28,7 @@ public class ProductController
     
     //GET methods
     @GetMapping("/product/{id}")
-    public Product getProductById(@PathVariable(name = "id") int productId)
+    public Product getProductById(@PathVariable(name = "id") UUID productId)
     {
 	System.out.println("Controller : "+productId);
 	Product fetchedProduct = service.getProductById(productId);
@@ -44,7 +44,7 @@ public class ProductController
     
     //POST Methods
     @PostMapping("/addProduct")
-    public int addProduct(@RequestBody Product newProduct)
+    public UUID addProduct(@RequestBody Product newProduct)
     {
 	System.out.println("Controller : "+newProduct);
 	Product insertedProduct = service.addProduct(newProduct);
