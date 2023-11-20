@@ -1,5 +1,6 @@
 package application.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -50,6 +51,18 @@ public class ProductController
 	Product insertedProduct = service.addProduct(newProduct);
 	System.out.println("Controller (Inserted Product) : "+insertedProduct.getId());
 	return insertedProduct.getId();
+    }
+    
+    //POST Methods
+    @PostMapping("/addProducts")
+    public List<UUID> addProduct(@RequestBody List<Product> newProducts)
+    {
+	System.out.println("Controller : "+newProducts);
+	List<UUID> returnKeys = new ArrayList<>();
+	for(Product newProduct : newProducts)
+	    returnKeys.add(addProduct(newProduct));
+	
+	return returnKeys;
     }
 
 }

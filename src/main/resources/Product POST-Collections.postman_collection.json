@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "f9364719-83e8-4f39-b67b-7bfbe489b432",
+		"name": "Product POST-Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/addProducts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n{\r\n\"name\" : \"Voltas Q1\",\r\n\"quantity\" : 10,\r\n\"price\" : 347900\r\n},\r\n{\r\n\"name\" : \"Voltas Q2\",\r\n\"quantity\" : 1,\r\n\"price\" : 36483\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/addProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"addProducts"
+					]
+				},
+				"description": "Adding a new Product with data in Body"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/addProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\" : \"Samsung S9\",\r\n\"quantity\" : 1,\r\n\"price\" : 78000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/addProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"addProduct"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

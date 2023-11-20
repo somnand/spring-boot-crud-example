@@ -10,5 +10,5 @@ import application.model.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, UUID>
 {    
-    //Pre-filled by Spring 
+    //Pre-filled by Spring
 }
