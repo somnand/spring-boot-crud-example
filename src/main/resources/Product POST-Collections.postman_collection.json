@@ -1,8 +1,10 @@
 {
 	"info": {
-		"_postman_id": "f9364719-83e8-4f39-b67b-7bfbe489b432",
+		"_postman_id": "244ddb2e-b0d5-4453-b76e-34d1b4911773",
 		"name": "Product POST-Collections",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1404702",
+		"_collection_link": "https://www.postman.com/somsuryananda/workspace/apitesting-spring/collection/1404702-244ddb2e-b0d5-4453-b76e-34d1b4911773?action=share&source=collection_link&creator=1404702"
 	},
 	"item": [
 		{
@@ -57,6 +59,29 @@
 					"port": "5000",
 					"path": [
 						"addProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"firstName\" : \"Bruce\",\r\n\"lastName\" : \"Wayne\",\r\n\"email\" : \"Bruce.Wayne@bw.com\",\r\n\"password\" : \"IamBatman\",\r\n\"matchingPassword\" : \"IamBatman\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
 					]
 				}
 			},
