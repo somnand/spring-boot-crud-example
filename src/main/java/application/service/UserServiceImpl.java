@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import application.model.UserEntity;
 import application.model.UserModel;
+import application.model.VerificationToken;
 import application.repository.UserRepository;
+import application.repository.VerificationTokenRepository;
 
 @Service
 public class UserServiceImpl implements UserService
@@ -16,8 +18,11 @@ public class UserServiceImpl implements UserService
     @Autowired
     private UserRepository userRepository;
     
-    //@Autowired
-    //private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    
+    @Autowired
+    private VerificationTokenRepository tokenRepository;
     
     @Override
     public UserEntity userRegisterService(UserModel userModel)
@@ -27,7 +32,7 @@ public class UserServiceImpl implements UserService
 	user.setLastName(userModel.getLastName());
 	user.setEmail(userModel.getEmail());
 	user.setRole("USER");
-	user.setPassword(userModel.getPassword());
+	user.setPassword(passwordEncoder.encode(userModel.getPassword()));
 	
 	return userRepository.save(user);
     }
@@ -36,5 +41,18 @@ public class UserServiceImpl implements UserService
     public List<UserEntity> getAllUsers()
     {
 	return userRepository.findAll();
+    }
+    
+    @Override
+    public Long saveVerificationTokenForUser(String token,UserEntity user)
+    {
+	VerificationToken verificationToken = new VerificationToken(user,token);
+	VerificationToken savedToken = tokenRepository.save(verificationToken);
+	return savedToken.getId();
+    }
+    
+    public List<VerificationToken> getAllVerificationTokens()
+    {
+	return tokenRepository.findAll();
     }
 }

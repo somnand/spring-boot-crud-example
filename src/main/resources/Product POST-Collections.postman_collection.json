@@ -71,7 +71,12 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"firstName\" : \"Bruce\",\r\n\"lastName\" : \"Wayne\",\r\n\"email\" : \"Bruce.Wayne@bw.com\",\r\n\"password\" : \"IamBatman\",\r\n\"matchingPassword\" : \"IamBatman\"\r\n}"
+					"raw": "{\r\n\"firstName\" : \"Bruce\",\r\n\"lastName\" : \"Wayne\",\r\n\"email\" : \"Bruce.Wayne@bw.com\",\r\n\"password\" : \"IamBatman\",\r\n\"matchingPassword\" : \"IamBatman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:5000/register",
@@ -82,6 +87,34 @@
 					"port": "5000",
 					"path": [
 						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/registerUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n\"firstName\" : \"Bruce\",\r\n\"lastName\" : \"Wayne\",\r\n\"email\" : \"Bruce.Wayne@bw.com\",\r\n\"password\" : \"IamBatman\",\r\n\"matchingPassword\" : \"IamBatman\"\r\n},\r\n{\r\n\"firstName\" : \"Barry\",\r\n\"lastName\" : \"Allen\",\r\n\"email\" : \"Barry.allen@fast.com\",\r\n\"password\" : \"Flash123\",\r\n\"matchingPassword\" : \"Flash123\"\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/registerUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"registerUsers"
 					]
 				}
 			},
