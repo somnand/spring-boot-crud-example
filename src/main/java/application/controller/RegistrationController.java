@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import application.event.RegistrationCompleteEvent;
@@ -41,6 +42,11 @@ public class RegistrationController
 	return "http://"+request.getServerName()+":"+request.getServerPort()+"/"+request.getContextPath();
     }
     
+    @GetMapping("/verifyRegistration")
+    public String verifyRegisteredUser(@RequestParam("token") String token)
+    {
+	return null;
+    }    
     
     @PostMapping("/registerUsers")
     public List<Long> registerUsers(@RequestBody List<UserModel> userModels,final HttpServletRequest request)
