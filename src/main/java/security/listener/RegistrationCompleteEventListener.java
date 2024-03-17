@@ -1,4 +1,4 @@
-package application.listener;
+package security.listener;
 
 import java.util.UUID;
 
@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import application.event.RegistrationCompleteEvent;
 import application.model.UserEntity;
 import application.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import security.event.RegistrationCompleteEvent;
 
 @Component
 @Slf4j

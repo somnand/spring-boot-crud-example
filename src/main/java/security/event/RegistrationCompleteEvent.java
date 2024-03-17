@@ -1,4 +1,4 @@
-package application.event;
+package security.event;
 
 import org.springframework.context.ApplicationEvent;
 import org.springframework.stereotype.Component;

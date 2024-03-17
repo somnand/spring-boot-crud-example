@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import application.event.RegistrationCompleteEvent;
 import application.model.UserEntity;
 import application.model.UserModel;
 import application.model.VerificationToken;
 import application.service.UserService;
+import security.event.RegistrationCompleteEvent;
 
 @RestController
 public class RegistrationController
