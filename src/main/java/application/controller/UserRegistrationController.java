@@ -20,7 +20,7 @@ import application.service.UserService;
 import security.event.RegistrationCompleteEvent;
 
 @RestController
-public class RegistrationController
+public class UserRegistrationController
 {
     @Autowired
     private UserService userService;
