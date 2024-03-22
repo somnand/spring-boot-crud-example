@@ -40,12 +40,6 @@ public class UserRegistrationController
     private String composeURL(HttpServletRequest request)
     {
 	return "http://"+request.getServerName()+":"+request.getServerPort()+"/"+request.getContextPath();
-    }
-    
-    @GetMapping("/verifyRegistration")
-    public String verifyRegisteredUser(@RequestParam("token") String token)
-    {
-	return null;
     }    
     
     @PostMapping("/registerUsers")
@@ -66,11 +60,5 @@ public class UserRegistrationController
     public List<UserEntity> getAllUsers()
     {
 	return userService.getAllUsers();
-    }
-    
-    @GetMapping("/allTokens")
-    public List<VerificationToken> getAllVerificationTokens()
-    {
-	return userService.getAllVerificationTokens();
     }
 }

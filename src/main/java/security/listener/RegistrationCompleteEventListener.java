@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import application.model.UserEntity;
 import application.service.UserService;
+import application.service.VerificationServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import security.event.RegistrationCompleteEvent;
 
@@ -16,7 +17,7 @@ import security.event.RegistrationCompleteEvent;
 public class RegistrationCompleteEventListener implements ApplicationListener<RegistrationCompleteEvent>
 {
     @Autowired
-    UserService userService;
+    VerificationServiceImpl verificationService;
     
     @Override
     public void onApplicationEvent(RegistrationCompleteEvent event)
@@ -24,7 +25,7 @@ public class RegistrationCompleteEventListener implements ApplicationListener<Re
 	//Create verification token for the User
 	UserEntity user = event.getUser();
 	String token = UUID.randomUUID().toString();
-	userService.saveVerificationTokenForUser(token, user);
+	verificationService.saveVerificationTokenForUser(token, user);
 	//Send URL link to User/ Currently printing to console
 	String url = event.getApplicationURL() + "verifyRegistration?token="+token;
 	log.info("Verifiaction URL :"+url);

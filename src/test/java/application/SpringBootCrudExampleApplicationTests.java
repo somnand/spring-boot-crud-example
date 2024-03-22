@@ -45,4 +45,7 @@ class SpringBootCrudExampleApplicationTests {
 	assertEquals(10.0, revivedProduct.getPrice());
 	
     }
+    //TODO Tets User save path
+    //TODO Test verified tokens
+    //TODO Test expiration
 }

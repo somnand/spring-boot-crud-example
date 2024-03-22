@@ -6,5 +6,6 @@ import application.model.VerificationToken;
 
 public interface VerificationTokenRepository extends JpaRepository<VerificationToken, Long> 
 {
+    public VerificationToken findByToken(String token);
 
 }

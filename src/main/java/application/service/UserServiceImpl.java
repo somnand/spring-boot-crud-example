@@ -42,17 +42,4 @@ public class UserServiceImpl implements UserService
     {
 	return userRepository.findAll();
     }
-    
-    @Override
-    public Long saveVerificationTokenForUser(String token,UserEntity user)
-    {
-	VerificationToken verificationToken = new VerificationToken(user,token);
-	VerificationToken savedToken = tokenRepository.save(verificationToken);
-	return savedToken.getId();
-    }
-    
-    public List<VerificationToken> getAllVerificationTokens()
-    {
-	return tokenRepository.findAll();
-    }
 }

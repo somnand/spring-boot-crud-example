@@ -11,7 +11,5 @@ import application.model.VerificationToken;
 public interface UserService
 {
     public UserEntity userRegisterService(UserModel userModel);
-    public List<UserEntity> getAllUsers();
-    public Long saveVerificationTokenForUser(String token,UserEntity user);
-    public List<VerificationToken> getAllVerificationTokens();
+    public List<UserEntity> getAllUsers();        
 }
