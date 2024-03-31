@@ -1,7 +1,7 @@
 # spring-boot-crud-example
 Storage for all Boot application programs. 
 
-Database : H2 Database(In-Memory)
+Database : H2 Database(In-Memory/In-File)
 
 ### Errors : 
 For H2 not functioning properly and asking for Driver:
@@ -42,5 +42,10 @@ src/main/resources/sql : Contains all SQL scripts used to query H2 persistant da
 ```
 For mappings please refer the controllers or search "@RestController("
 ```
- 
+### Branch details : <br/>
+```
+master : Contains general code without major test cases.<br/>
+code_with_unit_tests : Contains code with Unit Tests(MockMVC).<br/> 
+Following tutorial https://www.youtube.com/watch?v=BZBFw6fBeIU&list=PL82C6-O4XrHcg8sNwpoDDhcxUCbFy855E&index=8
+```
 
