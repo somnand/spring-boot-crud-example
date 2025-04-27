@@ -9,7 +9,12 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @EnableAsync
 public class AsyncConfig {
 	
-	
+	/**
+	 * To recreate java.util.concurrent.RejectedExecutionException reduce the numbers such that 
+	 * No. of Tasks > Max Pool + Queue Capacity 
+	 * eg : 50 > 46 + 3 
+	 * @return
+	 */
 	 @Bean("taskExecutor")
 	 public ThreadPoolTaskExecutor taskExecutor() 
 	 {
