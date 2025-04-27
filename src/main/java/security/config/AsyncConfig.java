@@ -15,8 +15,8 @@ public class AsyncConfig {
 	 {
 		 ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 		 executor.setCorePoolSize(2);
-		 executor.setMaxPoolSize(2);
-		 executor.setQueueCapacity(500);
+		 executor.setMaxPoolSize(3);//The sum of MaxPool Size and Queue Size must be equals to or more than the number of tasks submitted.
+		 executor.setQueueCapacity(47);//47+3 = 50 ie. 50 tasks submitted in AsyncTestService.callMultipleThreads() 
 		 executor.setThreadNamePrefix("MyAsyncThread-");
 		 executor.initialize();
 		 

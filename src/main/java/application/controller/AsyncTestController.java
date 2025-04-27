@@ -14,6 +14,8 @@ import application.service.AsyncTestService;
  * Short task will be executed in 2s and Long task will take 10s to run and show the output in console
  * 
  * The thread composition follows the configuration as per AsyncConfig class.
+ * 
+ * As a second process service is fed with N=50 threads and called. 
  *  
  * @author SomsuryaNanda
  * 
@@ -28,8 +30,9 @@ public class AsyncTestController
 	public String testAsyncCall()throws InterruptedException
 	{
 		System.out.println("Starting...");
-		service.longTask(10000);//10s
-		service.shortTask(2000);//2s 
+		//service.longTask(10000);//10s
+		//service.shortTask(2000);//2s 
+		service.callMultipleThreads(50);
 		System.out.println("Process Finished!");
 		
 		return "Process Finished!"+Thread.currentThread();
