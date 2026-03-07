@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import application.model.VerificationToken;
 import application.service.VerificationServiceImpl;
+import security.config.Constants;
 
 @RestController
 public class VerficationController
@@ -23,17 +24,15 @@ public class VerficationController
 	//Checking for valid / invalid and expired	
 	switch (result) {
 	case "expired":
-	    return "User token is expired after 10 mins.";
+	    return "User token is expired after "+ Constants.EXPIRATION_TIME+" mins.";
 	case "invalid":
 	    return "Bad User/ incorrect token";
-	//case "valid":
-	//    return "Welcome User";
 	default:
-	    if(result.contains("valid"))
-	    {
-		String[] parts = result.split(":");
-		return parts[1];
-	    }
+		if (result.contains("valid"))
+		{
+			String[] parts = result.split(":");
+			return "Welcome onboard " + parts[1];
+		}
 	    return "Error";
 	}
     }

@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * TODO : Is this class required ?
  * @author SOMSNAND
  *
  */
@@ -19,6 +18,6 @@ public class UserModel
     private String firstName,lastName;
     private String email;    
     private String password;
-    private String matchingPassword;
+    private String matchingPassword;//It is to check if the password are matching in case of a reset password
 
 }

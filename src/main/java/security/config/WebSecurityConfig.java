@@ -9,25 +9,24 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.BCryptVe
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
 @EnableWebSecurity
 public class WebSecurityConfig
 {
-    private static final int STRENGTH = 11;
-    private static final String[] WHITE_LIST_URLS = {"/welcome"};  
+	private static final int STRENGTH = 11;//This ranges between 4 to 31
+	private static final String[] WHITE_LIST_URLS = { "/welcome" };
 
-    @Bean
-    public PasswordEncoder passwordEncoder()
-    {
-	return new BCryptPasswordEncoder(STRENGTH);
-    }
-    
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity)throws Exception
-    {
-	httpSecurity.cors().and().csrf().disable().authorizeHttpRequests().antMatchers(WHITE_LIST_URLS).permitAll();
-	return httpSecurity.build();
-	
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder()
+	{
+		return new BCryptPasswordEncoder(STRENGTH);
+	}
+
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception
+	{
+		httpSecurity.cors().and().csrf().disable().authorizeHttpRequests().antMatchers(WHITE_LIST_URLS).permitAll();		
+		return httpSecurity.build();
+
+	}
 
 }

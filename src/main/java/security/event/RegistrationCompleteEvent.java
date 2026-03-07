@@ -1,5 +1,6 @@
 package security.event;
 
+import lombok.NoArgsConstructor;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.stereotype.Component;
 

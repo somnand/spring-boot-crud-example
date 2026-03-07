@@ -1,21 +1,14 @@
 package application.model;
 
-import java.util.Calendar;
-import java.util.Date;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import security.config.Constants;
+
+import javax.persistence.*;
+import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Data
@@ -24,7 +17,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class VerificationToken
 {
-    private static final int EXPIRATION_TIME = 10;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -43,7 +35,7 @@ public class VerificationToken
 	super();
 	this.token = token;
 	this.user = user;
-	this.expirationTime = calculateExpirationTime(EXPIRATION_TIME);
+	this.expirationTime = calculateExpirationTime(Constants.EXPIRATION_TIME);
     }
     
     public VerificationToken(String token)
