@@ -45,3 +45,4 @@ hs_err_pid*
 
 #DB Files
 *.db
+/.apt_generated_tests/

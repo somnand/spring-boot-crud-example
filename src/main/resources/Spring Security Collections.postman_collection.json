@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "e00e6c4d-c360-4614-9418-4023e6eb786d",
+		"name": "Spring Security Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/allUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/allUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"allUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"firstName\" : \"Bruce\",\r\n\"lastName\" : \"Wayne\",\r\n\"email\" : \"Bruce.Wayne@bw.com\",\r\n\"password\" : \"IamBatman\",\r\n\"matchingPassword\" : \"IamBatman\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/registerUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n\"firstName\" : \"Bruce\",\r\n\"lastName\" : \"Wayne\",\r\n\"email\" : \"Bruce.Wayne@bw.com\",\r\n\"password\" : \"IamBatman\",\r\n\"matchingPassword\" : \"IamBatman\"\r\n},\r\n{\r\n\"firstName\" : \"Barry\",\r\n\"lastName\" : \"Allen\",\r\n\"email\" : \"Barry.allen@fast.com\",\r\n\"password\" : \"Flash123\",\r\n\"matchingPassword\" : \"Flash123\"\r\n}]"
+				},
+				"url": {
+					"raw": "http://localhost:5000/registerUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"registerUsers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
