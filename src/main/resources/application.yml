@@ -1,0 +1,4 @@
+logging:
+  level:
+    root: INFO
+    application.controller: INFO #Change to DEBUG when required. Add more packages below.
