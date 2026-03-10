@@ -43,7 +43,7 @@ public class UserRegistrationController
             return new ResponseEntity(HttpStatus.EXPECTATION_FAILED);
     }
     
-    private String composeURL(HttpServletRequest request)
+    public static String composeURL(HttpServletRequest request)
     {
         StringBuilder url = new StringBuilder();
         url.append("http://").append(request.getServerName()).append(":").append(request.getServerPort()).append("/").append(request.getContextPath());
